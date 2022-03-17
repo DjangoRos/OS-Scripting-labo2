@@ -1,0 +1,9 @@
+expand-archive .\powershell-labos\labo02\recovered.zip \Desktop\sarah
+Remove-Item .\Desktop\sarah -Confirm -ErrorAction Stop
+expand-archive .\powershell-labos\labo02\recovered.zip \Desktop\sarah
+Invoke-WebRequest
+Resolve-DnsName _access.dieter.afterthought.be
+Resolve-DnsName -name _access.dieter.afterthought.be -type TXT
+$User = "www"
+$Passwd = ConvertTo-SecureString -String (Resolve-DnsName -Name _access.dieter.afterthought.be -Type TXT).strings[0] -AsPlainText -Force
+$Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $Passwd
